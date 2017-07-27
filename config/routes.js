@@ -6,6 +6,7 @@ const comics                 = require('../controllers/comics');
 const comments               = require('../controllers/comments');
 const users                  = require('../controllers/users');
 const statics                = require('../controllers/statics');
+const icons                = require('../controllers/icons');
 
 function secureRoute(req, res, next) {
   if (!req.session.userId) {
@@ -19,6 +20,9 @@ function secureRoute(req, res, next) {
 
 router.route('/')
 .get(statics.homepage);
+
+router.route('/icons')
+.get(icons.show);
 
 router.route('/comics')
 .get(comics.index)

@@ -1,1 +1,1 @@
-"use strict";console.log("client log!");
+"use strict";
