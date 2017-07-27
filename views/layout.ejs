@@ -37,80 +37,86 @@
   var geojson = {
     "type": "FeatureCollection",
     "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "title": "Daredevil_45_1968",
-                "description": "Since the early 1940s it has been the site of many confrontations among many of New York City's super-human population.",
-                "number": 1,
-                "name": "boris the brave"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -77.032,
-                    38.913
-                ]
-            }
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Daredevil_45_1968",
+          "description": "Since the early 1940s it has been the site of many confrontations among many of New York City's super-human population.",
+          "number": 1,
+          "name": "boris the brave"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "title": "Marvel_Mystery_Comics_Vol_1_2",
-                "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
-                "number": 2,
-                "name": "boris the brave"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -122.414,
-                    37.776
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "title": "Marvel_Mystery_Comics_Vol_1_2",
-                "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
-                "number": 3,
-                "name": "boris the brave"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -124.414,
-                    37.776
-                ]
-            }
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -77.032,
+            38.913
+          ]
         }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Marvel_Mystery_Comics_Vol_1_2",
+          "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+          "number": 2,
+          "name": "boris the brave"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -122.414,
+            37.776
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Marvel_Mystery_Comics_Vol_1_2",
+          "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+          "number": 3,
+          "name": "boris the brave"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -124.414,
+            37.776
+          ]
+        }
+      }
     ]
-};
+  };
 
   // add markers to map
   geojson.features.forEach(function(marker) {
     // create a HTML element for each feature
     var el = document.createElement('div');
     el.className = 'marker';
-
     el.style.backgroundImage = `url(images/${marker.properties.number}.jpg)`;
-
     // make a marker for each feature and add to the map
     new mapboxgl.Marker(el)
     .setLngLat(marker.geometry.coordinates)
     .addTo(map);
 
-    //POPUP
+    // //POPUP
+    // new mapboxgl.Marker(el, { offset: [-50 / 2, -50 / 2] })
+    // .setLngLat(marker.geometry.coordinates)
+    // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    //
+    // .setHTML(
+    //   '<h3>' + marker.properties.title + '</h3>' +
+    //   '<p> <b>Name:</b> &nbsp;'+ marker.properties.name + '</p>' +
+    //   '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>'
+    // )
+
     new mapboxgl.Marker(el, { offset: [-50 / 2, -50 / 2] })
-    .setLngLat(marker.geometry.coordinates)
-    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-    .setHTML(
-      '<h3>' + marker.properties.title + '</h3>' +
-      '<p> <b>Name:</b> &nbsp;'+ marker.properties.name + '</p>' +
-      '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>'
-    )
-    .addTo(map));
+  .setLngLat(marker.geometry.coordinates)
+  .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+  .setHTML('<h3>' + marker.properties.title + '</h3>' +
+    '<p> <b>Name:</b> &nbsp;'+ marker.properties.name + '</p>' +
+     '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>'))
+  .addTo(map);
   });
 
 
