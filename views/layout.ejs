@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <title>Super Hero Cities</title>
 
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -19,11 +22,11 @@
 
 </head>
 <body>
-  <div id='map' style='width: 1400px; height: 1000px;'></div>
-  <script>
 
+  <div id='map' style='width: 80%; height: 800px;margin:0 auto;margin-top:10%;'></div>
+
+  <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVpZGRhbGUiLCJhIjoiY2o1aWo1bDFvMXc1MDMybGRsNXEwMjg2byJ9.PMC4oYkMmQY5r7n9BvJrbA';
-  
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/quiddale/cj5jgnxb80map2sm6jnqbxjwp',
@@ -39,9 +42,8 @@
             "properties": {
                 "title": "Daredevil_45_1968",
                 "description": "Since the early 1940s it has been the site of many confrontations among many of New York City's super-human population.",
-                "image": 1,
+                "number": 1,
                 "name": "boris the brave"
-
             },
             "geometry": {
                 "type": "Point",
@@ -56,13 +58,29 @@
             "properties": {
                 "title": "Marvel_Mystery_Comics_Vol_1_2",
                 "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
-                "image": 8,
+                "number": 2,
                 "name": "boris the brave"
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -122.414,
+                    37.776
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Marvel_Mystery_Comics_Vol_1_2",
+                "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+                "number": 3,
+                "name": "boris the brave"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.414,
                     37.776
                 ]
             }
@@ -75,9 +93,10 @@
     // create a HTML element for each feature
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = `url(images/${marker.properties.number}.jpeg)`;
 
-    // add marker to map
+    el.style.backgroundImage = `url(images/${marker.properties.number}.jpg)`;
+
+    // make a marker for each feature and add to the map
     new mapboxgl.Marker(el)
     .setLngLat(marker.geometry.coordinates)
     .addTo(map);
@@ -89,8 +108,7 @@
     .setHTML(
       '<h3>' + marker.properties.title + '</h3>' +
       '<p> <b>Name:</b> &nbsp;'+ marker.properties.name + '</p>' +
-      '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>' +
-      '<p> <b>Image:</b> &nbsp;' + marker.properties.image + '</p>'
+      '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>'
     )
     .addTo(map));
   });
