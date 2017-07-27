@@ -91,35 +91,35 @@ User
     issueNumber: '100',
     image: 'images/J1_Chrysler.jpg',
     Lat: '40.7516',
-    Lng: '73.9755'
+    Lng: '-73.9755'
   },{
     // metropolitan museum of art
     title: 'spider-man and red sonja',
     issueNumber: '200',
     image: 'images/K1_Metropolitan_Art_Museum_Human_Fly_Vol_1_8.jpg',
     Lat: '40.7794',
-    Lng: '73.9632'
+    Lng: '-73.9632'
   },{
     // Manhattan
     title: 'The amazing spider-man in his first full-length novel mayhem in manhattan',
     issueNumber: '201',
     image: 'images/L1_Manhattan.jpg',
     Lat: '40.7831',
-    Lng: '73.9712'
+    Lng: '-73.9712'
   },{
     // Brooklyn
     title: 'Marvel Knights Spider-Man 5 Venomous Part One',
     issueNumber: '5',
     image: 'images/M1_Brooklyn.jpg',
     Lat: '40.6782',
-    Lng: '73.9442'
+    Lng: '-73.9442'
   },{
     // Brooklyn bridge
     title: 'The Night Gwen Stacy Died',
     issueNumber: '121',
     image: 'images/O1_Brooklyn Bridge.jpg',
     Lat: '40.7061',
-    Lng: '73.9969'
+    Lng: '-73.9969'
   }
   ]);
 })

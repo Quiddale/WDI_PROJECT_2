@@ -62,3 +62,51 @@ app.use((req, res, next) => {
 app.use(flash());
 app.use(routes);
 app.listen(port, () => console.log(`Express is listening on port ${port}`));
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //   $
+  //   .get(`${window.location.origin}/icons`)
+  //   .then(data => {
+  //     // read about
+  //     for(var i=0; i< data.length; i++){
+  //
+  //       geojson.features.push({
+  //         type: 'Feature',
+  //         geometry: {
+  //           type: 'Point',
+  //           coordinates: [data[i].Lat, data[i].Lng]
+  //         },
+  //         properties: {
+  //           title: data[i].title,
+  //           icon: data[i].icon
+  //         }
+  //       });
+  //     }
+  //     console.log(geojson);
+  //     console.log(geojson.features[0].geometry.coordinates);
+  //
+  //
+  //     var el = document.createElement('div');
+  //     el.className = 'marker';
+  //
+  //     geojson.features.forEach(function(marker) {
+  //       // create a HTML element for each feature
+  //       console.log(marker.geometry.coordinates);
+  //       // make a marker for each feature and add to the map
+  //       new mapboxgl.Marker(el) .setLngLat(marker.geometry.coordinates)
+  //       .addTo(map);
+  //     });
+  //
+  //   });
+  // }

@@ -3,123 +3,106 @@
 <head>
   <meta charset="utf-8">
   <title>Super Hero Cities</title>
+
+
+
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
-
   <script src="/js/client.js" charset="utf-8"></script>
   <link rel="stylesheet" href="/css/style.css">
-  // mapbox-gl
+
+
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
-
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
-  <style>
-
-  </style>
-
-
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet'/>
 
 </head>
 <body>
-  // Mapbox
-  <div id='map' style='width: 600px; height: 600px;'></div>
-
+  <div id='map' style='width: 1400px; height: 1000px;'></div>
   <script>
 
-  console.log('client log!');
+  mapboxgl.accessToken = 'pk.eyJ1IjoicXVpZGRhbGUiLCJhIjoiY2o1aWo1bDFvMXc1MDMybGRsNXEwMjg2byJ9.PMC4oYkMmQY5r7n9BvJrbA';
+  
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/quiddale/cj5jgnxb80map2sm6jnqbxjwp',
+    center: [-96, 37.8],
+    zoom: 3
+  });
+  //DATA
   var geojson = {
-    type: 'FeatureCollection',
-    features: []
-  };
-  $(init);
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "Daredevil_45_1968",
+                "description": "Since the early 1940s it has been the site of many confrontations among many of New York City's super-human population.",
+                "image": 1,
+                "name": "boris the brave"
 
-  function init() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoicXVpZGRhbGUiLCJhIjoiY2o1aWo1bDFvMXc1MDMybGRsNXEwMjg2byJ9.PMC4oYkMmQY5r7n9BvJrbA';
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/quiddale/cj5jgnxb80map2sm6jnqbxjwp',
-      center: [-96, 37.8],
-      zoom: 5
-    });
-
-    $
-    .get(`${window.location.origin}/icons`)
-    .then(data => {
-      // read about
-      for(var i=0; i< data.length; i++){
-
-        geojson.features.push({
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [data[i].Lat, data[i].Lng]
-          },
-          properties: {
-            title: data[i].title,
-            icon: data[i].icon
-          }
-        });
-      }
-      console.log(geojson);
-      console.log(geojson.features[0].geometry.coordinates);
-
-      var geojson = {
-        type: 'FeatureCollection',
-        features: [{
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-77.032, 38.913]
-          },
-          properties: {
-            title: 'Mapbox',
-            description: 'Washington, D.C.'
-          }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.032,
+                    38.913
+                ]
+            }
         },
         {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-122.414, 37.776]
-          },
-          properties: {
-            title: 'Mapbox',
-            description: 'San Francisco, California'
-          }
-        }]
-      };
+            "type": "Feature",
+            "properties": {
+                "title": "Marvel_Mystery_Comics_Vol_1_2",
+                "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+                "image": 8,
+                "name": "boris the brave"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.414,
+                    37.776
+                ]
+            }
+        }
+    ]
+};
+
+  // add markers to map
+  geojson.features.forEach(function(marker) {
+    // create a HTML element for each feature
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = `url(images/${marker.properties.number}.jpeg)`;
+
+    // add marker to map
+    new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .addTo(map);
+
+    //POPUP
+    new mapboxgl.Marker(el, { offset: [-50 / 2, -50 / 2] })
+    .setLngLat(marker.geometry.coordinates)
+    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    .setHTML(
+      '<h3>' + marker.properties.title + '</h3>' +
+      '<p> <b>Name:</b> &nbsp;'+ marker.properties.name + '</p>' +
+      '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>' +
+      '<p> <b>Image:</b> &nbsp;' + marker.properties.image + '</p>'
+    )
+    .addTo(map));
+  });
 
 
 
-
-
-
-          var el = document.createElement('div');
-          el.className = 'marker';
-
-          geojson.features.forEach(function(marker) {
-            // create a HTML element for each feature
-            console.log(marker.geometry.coordinates);
-            // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el) .setLngLat(marker.geometry.coordinates)
-            .addTo(map);
-          });
-
-        });
-      }
-
-
-      </script>
-
-      <main class="container">
-      <% for (const type in messages) { %>
-        <p class="alert alert-<%= type %>"><%= messages[type] %></p>
-        <% } %>
-        <%- body %>
-        </main>
-        </body>
-        </html>
+  </script>
+  <main class="container">
+    <% for (const type in messages) { %>
+      <p class="alert alert-<%= type %>"><%= messages[type] %></p>
+      <% } %>
+      <%- body %>
+    </main>
+  </body>
+  </html>
