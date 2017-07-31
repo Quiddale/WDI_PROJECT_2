@@ -18,8 +18,12 @@ function secureRoute(req, res, next) {
   return next();
 }
 
+
 router.route('/')
 .get(statics.homepage);
+
+router.route('/show')
+.get(statics.show);
 
 router.route('/icons')
 .get(icons.show);

@@ -1,0 +1,533 @@
+<div class="showbg">
+
+
+<div id='map' style='width: 90%; height: 900px;margin:0 auto;padding-top:10%'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoicXVpZGRhbGUiLCJhIjoiY2o1aWo1bDFvMXc1MDMybGRsNXEwMjg2byJ9.PMC4oYkMmQY5r7n9BvJrbA';
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/quiddale/cj5jgnxb80map2sm6jnqbxjwp',
+  center: [-96, 37.8],
+  zoom: 3
+});
+//DATA
+var geojson = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Daredevil_45_1968",
+        "description": "Since the early 1940s it has been the site of many confrontations among many of New York City's super-human population.",
+        "number": 1,
+        "name": "Daredevil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0445,
+          40.6892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 2,
+        "name": "Chrysler"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9755,
+          40.7516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 7,
+        "name": "Metropolitan Museum of Art"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9755,
+          40.7516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 11,
+        "name": "Manhattan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9632,
+          40.7794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 3,
+        "name": "Brooklyn Bridge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9969,
+          40.7061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 4,
+        "name": "boris the brave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0445,
+          40.6892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 8,
+        "name": "boris the brave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0445,
+          40.6892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 9,
+        "name": "boris the brave"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0445,
+          40.6892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 5,
+        "name": "grand central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9654,
+          40.7829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Marvel_Mystery_Comics_Vol_1_2",
+        "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
+        "number": 6,
+        "name": "grand central terminal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9772,
+          40.7527
+        ]
+      }
+    }
+  ]
+};
+
+// add markers to map
+geojson.features.forEach(function(marker) {
+  // create a HTML element for each feature
+  var el = document.createElement('div');
+  el.className = 'marker';
+  el.style.backgroundImage = `url(images/${marker.properties.number}.jpg)`;
+
+  // make a marker for each feature and add to the map
+  new mapboxgl.Marker(el)
+  .setLngLat(marker.geometry.coordinates)
+  .addTo(map);
+
+  // //POPUP
+  new mapboxgl.Marker(el, { offset: [-50 / 2, -50 / 2] })
+  .setLngLat(marker.geometry.coordinates)
+  .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+  .setHTML('<p>' + marker.properties.title + '</p>' +
+  '<p> <b>Name:</b> &nbsp;'+ marker.properties.name + '</p>' +
+  '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>'))
+  .addTo(map);
+
+  
+
+
+
+
+
+
+
+
+});
+
+</script>
+</div>

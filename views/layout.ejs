@@ -4,129 +4,38 @@
   <meta charset="utf-8">
   <title>Super Hero Cities</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
   <script src="/js/client.js" charset="utf-8"></script>
   <link rel="stylesheet" href="/css/style.css">
 
 
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet'/>
-
+<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 </head>
 <body>
-
-  <div id='map' style='width: 80%; height: 800px;margin:0 auto;margin-top:10%;'></div>
-
-  <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoicXVpZGRhbGUiLCJhIjoiY2o1aWo1bDFvMXc1MDMybGRsNXEwMjg2byJ9.PMC4oYkMmQY5r7n9BvJrbA';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/quiddale/cj5jgnxb80map2sm6jnqbxjwp',
-    center: [-96, 37.8],
-    zoom: 3
-  });
-  //DATA
-  var geojson = {
-    "type": "FeatureCollection",
-    "features": [
-      {
-        "type": "Feature",
-        "properties": {
-          "title": "Daredevil_45_1968",
-          "description": "Since the early 1940s it has been the site of many confrontations among many of New York City's super-human population.",
-          "number": 1,
-          "name": "boris the brave"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -77.032,
-            38.913
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "title": "Marvel_Mystery_Comics_Vol_1_2",
-          "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
-          "number": 2,
-          "name": "boris the brave"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -122.414,
-            37.776
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "title": "Marvel_Mystery_Comics_Vol_1_2",
-          "description": "Manhattan is the heart of New York City. This is one of the world's leading financial, cultural, commercial, manufacturing, and medical centers.",
-          "number": 3,
-          "name": "boris the brave"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -124.414,
-            37.776
-          ]
-        }
-      }
-    ]
-  };
-
-  // add markers to map
-  geojson.features.forEach(function(marker) {
-    // create a HTML element for each feature
-    var el = document.createElement('div');
-    el.className = 'marker';
-    el.style.backgroundImage = `url(images/${marker.properties.number}.jpg)`;
-    // make a marker for each feature and add to the map
-    new mapboxgl.Marker(el)
-    .setLngLat(marker.geometry.coordinates)
-    .addTo(map);
-
-    // //POPUP
-    // new mapboxgl.Marker(el, { offset: [-50 / 2, -50 / 2] })
-    // .setLngLat(marker.geometry.coordinates)
-    // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-    //
-    // .setHTML(
-    //   '<h3>' + marker.properties.title + '</h3>' +
-    //   '<p> <b>Name:</b> &nbsp;'+ marker.properties.name + '</p>' +
-    //   '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>'
-    // )
-
-    new mapboxgl.Marker(el, { offset: [-50 / 2, -50 / 2] })
-  .setLngLat(marker.geometry.coordinates)
-  .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-  .setHTML('<h3>' + marker.properties.title + '</h3>' +
-    '<p> <b>Name:</b> &nbsp;'+ marker.properties.name + '</p>' +
-     '<p> <b>Description:</b> &nbsp;' + marker.properties.description + '</p>'))
-  .addTo(map);
-  });
-
-
-
-  </script>
-  <main class="container">
-    <% for (const type in messages) { %>
-      <p class="alert alert-<%= type %>"><%= messages[type] %></p>
-      <% } %>
-      <%- body %>
-    </main>
-  </body>
-  </html>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo crazyFont">Marvel Comics Guide to New York</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/show">Show</a></li>
+      </ul>
+    </div>
+  </nav>
+    <%- body %>
+</body>
+</html>

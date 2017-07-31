@@ -1,14 +1,29 @@
+*{
+  font-family: 'Exo 2', sans-serif;
+}
 body {
-  background: yellow;
   margin: 0;
   padding: 0;
+
 }
 
-.marker {
-  background-color: red;
+.containMe{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.showbg{
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Amazing-spider-man-spiderman-webs-comics-video-superhero-wallpapers.jpg");
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  background-repeat: no-repeat;
+  overflow:visible;
+  height:1200px;
+}
+.marker {
+  background-color: blue;
+  background-size: cover;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   cursor: pointer;
   padding: 0;
@@ -18,19 +33,39 @@ body {
 }
 
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 240px;
+  max-height: 100px;
+  background: #6495ED;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+
 }
 
 label {
   color: red;
-  font-family: 'Open Sans', sans-serif;s
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 2px 2px 8px #FF0000;
 }
 
 h1 {
   color: red;
+  text-shadow: 3px 3px 6px #FF0000;
+}
+
+.pow{
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Amazing-spider-man-spiderman-webs-comics-video-superhero-wallpapers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1200px;
+  p{
+      margin: none!important;
+    font-size: 100px;
+    padding-top: 300px;
+    text-align: center;
+    color: white;
+    text-shadow: 4px 6px 8px #FF0000;
+  }
 }

@@ -13,6 +13,14 @@ function staticsHomepage(req, res) {
   .exec()
   .then((icons) => res.render('statics/homepage', { icons: icons }));
 }
+
+function staticsShow(req, res) {
+  res.render('statics/show');
+}
+
+
+
 module.exports = {
-  homepage: staticsHomepage
+  homepage: staticsHomepage,
+  show: staticsShow
 };
