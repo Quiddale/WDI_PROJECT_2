@@ -1,4 +1,14 @@
 # Super Hero
-**Infinite Runner:**  **Wins**
-The most satifing piece of code within this project was reading the documentation about the collision function and getting this to work. This was also the hardest piece of code within this project but i really enjoyed it.
-**Things I Found Hard**Intergrating Mapbox API in the website
+Check out the live version of the app here -> https://pacific-ravine-87313.herokuapp.com/
+
+---
+**Mapbox API**
+
+---
+
+**Marvel API**
+
+---
+
+![alt text](https://i.imgur.com/zdlUN68.png "Collision Course Screengrab")
+All projects and my details can be found here -> www.qosullivan.com
